@@ -1,5 +1,5 @@
 class Square:
-    def __init__(self, pos_x, pos_y, alive, edges=(False, False, False, False)):
+    def __init__(self, pos_x: int, pos_y: int, alive: bool, edges=(False, False, False, False)):
         #edges (left, right, up, bottom)
         self.__pos_x = pos_x
         self.__pos_y = pos_y
@@ -16,16 +16,18 @@ class Square:
             for y in [-1, 0, 1]:
                 if (x, y) == (0, 0):
                     continue
-                if x < 0 and self.edges[0]:
+                elif x < 0 and self.edges[0]:
                     continue
-                if x > 0 and self.edges[1]:
+                elif x > 0 and self.edges[1]:
                     continue
-                if y < 0 and self.edges[2]:
+                elif y < 0 and self.edges[2]:
                     continue
-                if y > 0 and self.edges[3]:
+                elif y > 0 and self.edges[3]:
                     continue
+                else:
+                    neighbors.append((x, y))
 
-                print(x, y)
+        return neighbors
 
     @property
     def pos_x(self):
@@ -42,6 +44,9 @@ class Square:
     @pos_y.setter
     def pos_y(self, newval):
         raise Exception("No can do!")
+
+    def __str__(self):
+        return "1" if self.alive else "0"
 
 
 
