@@ -28,6 +28,11 @@ class Square:
                     neighbors.append((x, y))
 
         return neighbors
+    def prepareChange(self, new_alive):
+        self.new_alive = new_alive
+
+    def commitChange(self):
+        self.alive = self.new_alive
 
     @property
     def pos_x(self):
