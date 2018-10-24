@@ -32,7 +32,7 @@ class Square:
         self.new_alive = new_alive
 
     def commitChange(self):
-        self.alive = self.new_alive
+        self.alive = True if self.new_alive else False # deepcopy
 
     @property
     def pos_x(self):
@@ -51,7 +51,7 @@ class Square:
         raise Exception("No can do!")
 
     def __str__(self):
-        return "1" if self.alive else "0"
+        return "██" if self.alive else "  "
 
 
 
